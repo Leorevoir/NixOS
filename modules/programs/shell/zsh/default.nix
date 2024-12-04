@@ -3,9 +3,6 @@
 }: {
   home-manager.sharedModules = [
     (_: {
-      home.file.".config/zsh/.p10k.zsh" = {
-        source = ./.p10k.zsh;
-      };
       home.file.".config/zsh/templates" = {
         source = ./templates;
         recursive = true;
@@ -18,31 +15,17 @@
         history.size = 100000;
         history.path = "\${XDG_DATA_HOME}/zsh/history";
         dotDir = ".config/zsh";
-        #plugins = [
-        #  {
-        #    name = "romkatv/powerlevel10k";
-        #    src = pkgs.zsh-powerlevel10k;
-        #    file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        #  }
-        #];
         oh-my-zsh = {
-          # Plug-ins
           enable = true;
           plugins = [ "git" "gitignore" "aliases" "z" ];
         };
         initExtra = ''
-          # Powerlevel10k Zsh theme
-          source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-          test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh
 
           # Direnv hook
           eval "$(direnv hook zsh)"
 
           # Key Bindings
-          # bindkey -s ^t "tmux-sessionizer\n"
           bindkey -s ^l "lf\n"
-          bindkey '^a' beginning-of-line
-          bindkey '^e' end-of-line
 
           # options
           unsetopt menu_complete
@@ -162,6 +145,8 @@
           export XMONAD_DATA_DIR="''${XDG_DATA_HOME:-$HOME/.local/share}/xmonad"
           export XMONAD_CACHE_DIR="''${XDG_CACHE_HOME:-$HOME/.cache}/xmonad"
 
+          export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
           export FZF_DEFAULT_OPTS=" \
           --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
           --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
@@ -210,13 +195,13 @@
           G = "| grep";
         };
         shellAliases = {
-          neofetch = "microfetch";
           cls = "clear";
           cp = "cp -iv";
           mv = "mv -iv";
           rm = "rm -vI";
           mkdir = "mkdir -pv";
           grep = "grep --color=always";
+          open = "thunar $1 &";
 
           # Nixos
           list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system/";
