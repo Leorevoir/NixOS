@@ -393,7 +393,9 @@
 
               # Special workspaces (scratchpad)
               "$mainMod ALT, S, movetoworkspacesilent, special"
-              "$mainMod, S, togglespecialworkspace,"
+              # "$mainMod, S, togglespecialworkspace,"
+              # launch Spotify
+              "$mainMod, S, exec, spotify"
 
               # move focus to workspace
               "$mainMod SHIFT,AMPERSAND,movetoworkspace,1"
