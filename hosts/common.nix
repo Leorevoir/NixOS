@@ -32,7 +32,6 @@ in
     ../modules/programs/misc/spicetify
     ../modules/programs/misc/obs
     ../modules/programs/misc/swww
-    ../modules/programs/misc/discord
   ];
 
   # Common home-manager options that are shared between all systems.
@@ -61,16 +60,19 @@ in
         tldr
         unzip
 
-        # fun
+        # foo-fetch
         starfetch
         fastfetch
-        microfetch
+        neofetch
+        microfetch # this is the best one fr
+        ipfetch
+
+        # fun
         cmatrix
         kittysay
         cowsay
         uwuify
-        nitch
-        ipfetch
+        nitch # cute lil neofetch
         lolcat
 
         # useful
