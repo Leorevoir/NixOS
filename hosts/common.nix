@@ -89,6 +89,7 @@ in
         lua
         rustc
         cargo
+        crystal
 
         (pkgs.writeShellScriptBin "hello" ''
           echo "Hello ${username}!"
