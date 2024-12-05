@@ -134,10 +134,6 @@ else
   show_success "Generated your hardware-configuration"
 fi
 
-catppuccin_prompt "🖌️" "Installing wallpapers..."
-nix-shell --command "git clone https://github.com/Leorevoir/wallpapers.git $script_dir/modules/themes/wallpapers"
-show_success "Installed wallpapers"
-
 nix-shell --command "git -C $script_dir add *"
 catppuccin_prompt "🚧" "BUILDING (this may take a while)"
 nix-shell --command "sudo nixos-rebuild switch --flake "$script_dir#Default" || exit 84"
