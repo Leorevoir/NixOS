@@ -14,8 +14,14 @@
           });
         in
         pkgs.lib.replaceStrings
-          [ "palette = \"catppuccin_macchiato\"" ]
-          [ "palette = \"catppuccin_mocha\"" ]
+          [
+            "palette = \"catppuccin_macchiato\""
+            "󰄛"
+          ]
+          [
+            "palette = \"catppuccin_mocha\""
+            ""
+          ]
           originalConfig;
     })
   ];
