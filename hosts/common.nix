@@ -57,6 +57,7 @@ in
         htop
         nix-prefetch-scripts
         ripgrep
+        procps
         tldr
         unzip
 
@@ -78,6 +79,7 @@ in
         # useful
         evtest
         libinput
+        gmp
         usbutils
         webcamoid
         wev
@@ -90,6 +92,7 @@ in
         rustc
         cargo
         crystal
+        shards
 
         (pkgs.writeShellScriptBin "hello" ''
           echo "Hello ${username}!"
