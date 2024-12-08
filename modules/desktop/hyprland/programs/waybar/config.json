@@ -69,6 +69,7 @@
     "max-length": 10,
     "tooltip": false
   },
+
   "memory": {
     "interval": 30,
     "format": "󰾆 {used}GiB",
@@ -76,20 +77,22 @@
     "tooltip": true,
     "tooltip-format": " {used:.1f}GB/{total:.1f}GB"
   },
+
   "backlight": {
     "device": "amdgpu_bl1",
     "format": "{icon} {percent}",
     "tooltip": false,
     "format-icons": ["󰃞", "󰃟", "󰃠"]
   },
+
   "network": {
     "format-wifi": "  {essid}",
-    "on-click": "nm-applet",
     "format-ethernet": "󱘖 Wired",
     "format-linked": "󱘖 {ifname} (No IP)",
     "format-disconnected": " Disconnected",
     "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "interval": 5
+    "on-click": "nm-connection-editor",
+    "interval": 5,
   },
 
   "pulseaudio": {
@@ -103,6 +106,7 @@
     },
     "on-click": "pavucontrol"
   },
+
   "battery": {
     "interval": 30,
     "states": {
@@ -116,18 +120,19 @@
     "format-icons": [" ", " ", " ", " ", " "],
     "format-alt": "{time} {icon}"
   },
+
   "custom/icon": {
     "format": " "
   },
   "custom/separator": {
     "format": " "
   },
-"custom/window-name": {
-    "format": "<b>{}</b>",
-    "interval": 1,
-    "exec": "bash ~/.config/waybar/window-name.sh"
-},
 
+  "custom/window-name": {
+      "format": "<b>{}</b>",
+      "interval": 1,
+      "exec": "bash ~/.config/waybar/window-name.sh"
+  },
 
   "custom/pacman-update-icon": {
     "format": ""
@@ -142,4 +147,5 @@
     "exec": "sensors | grep 'temp1' | awk '{print $2}' | sed 's/+//g' | sed 's/°C//g'",
     }
   },
+
 
