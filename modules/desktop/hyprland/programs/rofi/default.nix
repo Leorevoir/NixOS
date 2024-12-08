@@ -19,7 +19,7 @@
             recursive = true;
           };
 
-          "config/rofi/colors" = {
+          ".config/rofi/colors" = {
             source = ./colors;
             recursive = true;
           };
