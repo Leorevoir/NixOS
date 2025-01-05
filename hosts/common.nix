@@ -18,7 +18,7 @@ in
     ../modules/programs/shell/bash
     ../modules/programs/shell/zsh
     ../modules/programs/browser/firefox
-    ../modules/programs/editor/nixvim
+    # ../modules/programs/editor/nixvim
     ../modules/programs/cli/starship
     ../modules/programs/cli/tmux
     ../modules/programs/cli/direnv
@@ -93,6 +93,16 @@ in
         cargo
         crystal
         shards
+
+        # safe editor just in case
+        vim
+
+        # tiles map editor for 2D games
+        tiled
+
+        # lsp
+        crystalline
+        nil
 
         (pkgs.writeShellScriptBin "hello" ''
           echo "Hello ${username}!"
@@ -255,8 +265,6 @@ in
     libsForQt5.qt5.qtgraphicaleffects # For sddm to function properly
     vulkan-tools
     sddm-themes.astronaut
-    # sddm-themes.sugar-dark
-    # sddm-themes.tokyo-night
 
     # preview image
     qimgv
