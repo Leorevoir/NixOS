@@ -6,10 +6,12 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-waybar-fix.url = "github:nixos/nixpkgs/c7b821ba2e1e635ba5a76d299af62821cbcb09f3";
     nur.url = "github:nix-community/NUR";
-    nixvim = {
-      url = "github:Leorevoir/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # WARN: work in progress, due to a stupid unstable package i cannot rebuild with stable hm my nixvim
+    # so now i use it with an alias to /path/to/result/bin/nvim
+    # nixvim = {
+    #   url = "github:Leorevoir/nixvim/dev"; # WARN: change to "github:Leorevoir/nixvim", do not use dev branch
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     home-manager = {
       url = "github:nix-community/home-manager";
