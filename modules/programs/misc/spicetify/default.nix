@@ -21,7 +21,8 @@
         programs.spicetify = {
           enable = true;
           theme = spicePkgs.themes.catppuccin;
-          colorScheme = "mocha";
+          # colorScheme = "mocha"; # WARN
+          colorScheme = "macchiato";
 
           enabledExtensions = with spicePkgs.extensions; [
             shuffle

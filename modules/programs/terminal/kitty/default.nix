@@ -7,7 +7,8 @@
           name = "JetBrainsMono Nerd Font";
           size = 11.0;
         };
-        themeFile = "Catppuccin-Mocha";
+        # themeFile = "Catppuccin-Mocha"; # WARN
+        themeFile = "Catppuccin-Macchiato";
         settings = {
           confirm_os_window_close = 0;
           scrollback_lines = 10000;

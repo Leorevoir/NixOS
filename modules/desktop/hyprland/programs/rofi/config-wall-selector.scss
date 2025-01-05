@@ -4,13 +4,23 @@ configuration {
   drun-display-format: '{name}';
 }
 
-// Catppuccin mocha-like
+// WARN changed
+// * {
+//   background: #1e1d2fff;
+//   background-alt: #282839ff;
+//   foreground: #d9e0eeff;
+//   selected: #7aa2f7ff;
+//   active: #abe9b3ff;
+//   separatorcolor: transparent;
+//   border-color: transparent;
+// }
+// catppuccin macchiato-like color palette
 * {
-  background: #1e1d2fff;
-  background-alt: #282839ff;
-  foreground: #d9e0eeff;
-  selected: #7aa2f7ff;
-  active: #abe9b3ff;
+  background: #24273a;
+  background-alt: #24273a;
+  foreground: #24273a;
+  selected: #24273a;
+  active: #8aadf4;
   separatorcolor: transparent;
   border-color: transparent;
 }

@@ -40,7 +40,7 @@ in
     home = {
       inherit username;
       homeDirectory = "/home/${username}";
-      stateVersion = "24.05";
+      stateVersion = "24.11";
       packages = with pkgs; [
         # Applications
         #kate
@@ -202,7 +202,8 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  # hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -220,20 +221,20 @@ in
 
   fonts.packages = with pkgs; [
     # for 24.11 future version
-    # nerd-fonts.jetbrains-mono
-    # nerd-fonts.fira-code
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "FiraCode"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    # (nerdfonts.override {
+    #   fonts = [
+    #     "JetBrainsMono"
+    #     "FiraCode"
+    #   ];
+    # })
   ];
 
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      inputs.nur.overlay
+      inputs.nur.overlays.default
       pkgs-stable
     ];
   };
@@ -255,7 +256,6 @@ in
     scripts.tmux-sessionizer
     scripts.collect-garbage
     scripts.driverinfo
-    scripts.underwatt
 
     discord
 
