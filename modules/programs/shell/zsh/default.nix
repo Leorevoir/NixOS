@@ -111,33 +111,13 @@
             ${pkgs.eza}/bin/eza --icons=auto --tree .
           }
 
-          function crun {
-            #VAR=''${1:-.}
-            mkdir build 2> /dev/null
-            nix-shell --run "cmake -B build"
-            nix-shell --run "cmake --build build"
-            build/main
+          function open_folder()
+          {
+              if [ -d "$1" ]; then
+                  thunar $1 &> /dev/null &
+              fi
           }
 
-          function crun-mingw {
-            #VAR=''${1:-.}
-            mkdir build-mingw 2> /dev/null
-            nix-shell --run "x86_64-w64-mingw32-cmake -B build-mingw"
-            nix-shell --run "make -C build-mingw"
-            build-mingw/main.exe
-          }
-
-          function cbuild {
-            mkdir build 2> /dev/null
-            nix-shell --run "cmake -B build"
-            nix-shell --run "cmake --build build"
-          }
-
-          function cbuild-mingw {
-            mkdir build-mingw 2> /dev/null
-            nix-shell --run "x86_64-w64-mingw32-cmake -B build-mingw"
-            nix-shell --run "make -C build-mingw"
-          }
         '';
         envExtra = ''
                 # Defaults
@@ -192,7 +172,6 @@
         '';
         shellGlobalAliases = {
           UUID = "$(uuidgen | tr -d \\n)";
-          G = "| grep";
         };
         shellAliases = {
           cls = "clear";
@@ -201,13 +180,14 @@
           rm = "rm -vI";
           mkdir = "mkdir -pv";
           grep = "grep --color=always";
-          open = "thunar $1 &";
-
+          open = "open_folder $1";
           # Nixos
           list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system/";
           find-store-path = ''function { nix-shell -p $1 --command "nix eval -f "<nixpkgs>" --raw $1" }'';
           update-input = "nix flake lock --update-input $@";
           rebuild = "~/NixOS/install.sh --rebuild";
+          # INFO: the temporary solution lmao
+          nvim = "/home/yutsuna/work/nixvim/result/bin/nvim";
         };
       };
     })

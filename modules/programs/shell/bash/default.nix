@@ -1,6 +1,5 @@
-{
-  pkgs,
-  ...
+{ pkgs
+, ...
 }: {
   programs.bash = {
     promptInit = ''
@@ -79,38 +78,6 @@
             direnv allow
           #echo "Created the following Directories and files."
           ${pkgs.eza}/bin/eza --icons=auto --tree .
-        }
-      '';
-      crun = ''
-        {
-          #VAR=$\{1:-.}
-          mkdir build 2> /dev/null
-          ${pkgs.cmake}/bin/cmake -B build
-          ${pkgs.cmake}/bin/cmake --build build
-          build/main
-        }
-      '';
-      crun-mingw = ''
-        {
-          #VAR=$\{1:-.}
-          mkdir build-mingw 2> /dev/null
-          x86_64-w64-mingw32-cmake -B build-mingw
-          make -C build-mingw
-          build-mingw/main.exe
-        }
-      '';
-      cbuild = ''
-        {
-          mkdir build 2> /dev/null
-          ${pkgs.cmake}/bin/cmake -B build
-          ${pkgs.cmake}/bin/cmake --build build
-        }
-      '';
-      cbuild-mingw = ''
-        {
-          mkdir build-mingw 2> /dev/null
-          x86_64-w64-mingw32-cmake -B build-mingw
-          ${pkgs.gnumake}/bin/make -C build-mingw
         }
       '';
       cls = "clear";
