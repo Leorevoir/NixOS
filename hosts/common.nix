@@ -13,11 +13,13 @@ in
   imports = [
     inputs.home-manager.nixosModules.home-manager
 
+    ../modules/programs/games
     ../modules/hardware/drives
     ../modules/programs/terminal/${terminal}
     ../modules/programs/shell/bash
     ../modules/programs/shell/zsh
     ../modules/programs/browser/firefox
+    #TODO: enlever l'alias et remettre le nixvim tel quil etait avant la 24.11
     # ../modules/programs/editor/nixvim
     ../modules/programs/cli/starship
     ../modules/programs/cli/tmux
@@ -91,6 +93,7 @@ in
         lua
         rustc
         cargo
+        nodejs_23
         crystal
         shards
 
@@ -103,7 +106,6 @@ in
         # lsp
         crystalline
         nil
-
         (pkgs.writeShellScriptBin "hello" ''
           echo "Hello ${username}!"
         '')
@@ -220,9 +222,10 @@ in
   users.defaultUserShell = pkgs.zsh;
 
   fonts.packages = with pkgs; [
-    # for 24.11 future version
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
+    # new 24.11 /\
+    # old 24.05 \/
     # (nerdfonts.override {
     #   fonts = [
     #     "JetBrainsMono"
@@ -236,6 +239,10 @@ in
     overlays = [
       inputs.nur.overlays.default
       pkgs-stable
+      #TODO: finir le package
+      # (self: super: {
+      #   betterdiscord = super.callPackage ./../modules/programs/misc/betterdiscord { };
+      # })
     ];
   };
 
@@ -257,8 +264,6 @@ in
     scripts.collect-garbage
     scripts.driverinfo
 
-    discord
-
     # System
     killall
     jq
@@ -272,6 +277,10 @@ in
     # Development
     devbox # faster nix-shells
     shellify # faster nix-shells
+
+    discord
+    # TODO: finir le package puis injecter le css dans discord
+    # betterdiscord
   ];
 
 
