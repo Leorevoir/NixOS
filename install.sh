@@ -64,8 +64,8 @@ function nix_rebuild_dots()
 {
     nix-shell --command "git add -A" || show_error "cannot add files to git tree"
     catppuccin_prompt "🚧" "BUILDING (this may take a while)"
-    # nix-shell --command "sudo nixos-rebuild switch --flake '$script_dir#Default' --show-trace" || show_error "an error occured... see logs for additional details "
-    nix-shell --command "sudo nixos-rebuild switch --flake '$script_dir#Default'" || show_error "an error occured... see logs for additional details "
+    nix-shell --command "sudo nixos-rebuild switch --flake '$script_dir#Default' --show-trace" || show_error "an error occured... see logs for additional details "
+    # nix-shell --command "sudo nixos-rebuild switch --flake '$script_dir#Default'" || show_error "an error occured... see logs for additional details "
     show_success "SUCCESS"
     exit 0
 }
