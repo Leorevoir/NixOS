@@ -16,7 +16,7 @@ in
     ../modules/programs/games
     ../modules/hardware/drives
     ../modules/programs/terminal/${terminal}
-    ../modules/programs/shell/bash
+    ../modules/programs/terminal/ghostty
     ../modules/programs/shell/zsh
     ../modules/programs/browser/firefox
     #TODO: enlever l'alias et remettre le nixvim tel quil etait avant la 24.11
@@ -24,6 +24,7 @@ in
     ../modules/programs/cli/starship
     ../modules/programs/cli/tmux
     ../modules/programs/cli/direnv
+    ../modules/programs/cli/fastfetch
     ../modules/programs/cli/lf
     ../modules/programs/cli/lazygit
     ../modules/programs/cli/cava
@@ -64,9 +65,9 @@ in
         unzip
 
         # foo-fetch
+        neofetch
         starfetch
         fastfetch
-        neofetch
         microfetch # this is the best one fr
         ipfetch
 
@@ -82,6 +83,7 @@ in
         evtest
         libinput
         gmp
+        zathura
         usbutils
         webcamoid
         wev
@@ -89,6 +91,8 @@ in
         # languages
         python3
         gcc
+        gpp
+        ghc
         gnumake
         lua
         rustc
