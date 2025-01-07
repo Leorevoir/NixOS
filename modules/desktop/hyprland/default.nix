@@ -245,6 +245,7 @@
               "opacity 0.80 0.80,class:^(Code)$"
               "opacity 0.80 0.80,class:^(code-url-handler)$"
               "opacity 0.80 0.80,class:^(kitty)$"
+              "opacity 0.80 0.80,class:^(ghostty)$"
               "opacity 0.80 0.80,class:^(org.kde.dolphin)$"
               "opacity 0.80 0.80,class:^(org.kde.ark)$"
               "opacity 0.80 0.80,class:^(nwg-look)$"
@@ -318,6 +319,7 @@
               "$CONTROL, ESCAPE, exec, killall waybar || waybar" # toggle waybar
 
               "$mainMod, Return, exec, $term"
+              "$mainMod, G, exec, ghostty"
               "$mainMod, T, exec, $term"
               "$mainMod, E, exec, $file"
               "$mainMod, C, exec, $editor"
