@@ -3,9 +3,15 @@
 }: {
   home-manager.sharedModules = [
     (_: {
-      home.file.".config/zsh/templates" = {
-        source = ./templates;
-        recursive = true;
+      home.file = {
+        ".config/zsh/templates" = {
+          source = ./templates;
+          recursive = true;
+        };
+        ".config/zsh/scripts" = {
+          source = ./scripts;
+          recursive = true;
+        };
       };
       programs.zsh = {
         enable = true;
@@ -111,13 +117,6 @@
             ${pkgs.eza}/bin/eza --icons=auto --tree .
           }
 
-          function open_folder()
-          {
-              if [ -d "$1" ]; then
-                  thunar $1 &> /dev/null &
-              fi
-          }
-
         '';
         envExtra = ''
                 # Defaults
@@ -180,7 +179,6 @@
           rm = "rm -vI";
           mkdir = "mkdir -pv";
           grep = "grep --color=always";
-          open = "open_folder $1";
           # Nixos
           list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system/";
           find-store-path = ''function { nix-shell -p $1 --command "nix eval -f "<nixpkgs>" --raw $1" }'';
@@ -188,6 +186,7 @@
           rebuild = "~/NixOS/install.sh --rebuild";
           # INFO: the temporary solution lmao
           nvim = "/home/yutsuna/work/nixvim/result/bin/nvim";
+          open = "~/.config/zsh/scripts/open.sh";
         };
       };
     })
