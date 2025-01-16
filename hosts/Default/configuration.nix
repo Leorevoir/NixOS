@@ -67,6 +67,7 @@
       "libvirtd"
       "video"
       "audio"
+      "docker"
     ];
   };
 

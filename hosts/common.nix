@@ -19,6 +19,7 @@ in
     ../modules/programs/terminal/ghostty
     ../modules/programs/shell/zsh
     ../modules/programs/browser/firefox
+    ../modules/programs/browser/chromium
     #TODO: enlever l'alias et remettre le nixvim tel quil etait avant la 24.11
     # ../modules/programs/editor/nixvim
     ../modules/programs/cli/starship
@@ -31,6 +32,7 @@ in
     ../modules/programs/cli/btop
     ../modules/programs/cli/bat
     ../modules/programs/cli/eza
+    # ../modules/programs/cli/pokemon
     ../modules/programs/misc/mpv
     ../modules/programs/misc/spicetify
     ../modules/programs/misc/obs
@@ -38,94 +40,113 @@ in
   ];
 
   # Common home-manager options that are shared between all systems.
-  home-manager.users.${username} = { pkgs, ... }: {
-    xdg.enable = true;
-    home = {
-      inherit username;
-      homeDirectory = "/home/${username}";
-      stateVersion = "24.11";
-      packages = with pkgs; [
-        # Applications
-        #kate
-        xfce.thunar
+  home-manager.users.${username} =
+    { pkgs, ... }:
+    {
+      xdg.enable = true;
+      home = {
+        inherit username;
+        homeDirectory = "/home/${username}";
+        stateVersion = "24.11";
+        packages = with pkgs; [
+          # Applications
+          #kate
+          xfce.thunar
 
-        # Terminal
-        bat
-        eza
-        fzf
-        fd
-        git
-        gh
-        bc
-        htop
-        nix-prefetch-scripts
-        ripgrep
-        procps
-        tldr
-        unzip
+          # Terminal
+          bat
+          eza
+          fzf
+          fd
+          git
+          gh
+          bc
+          htop
+          nix-prefetch-scripts
+          ripgrep
+          procps
+          tldr
+          unzip
 
-        # foo-fetch
-        neofetch
-        starfetch
-        fastfetch
-        microfetch # this is the best one fr
-        ipfetch
+          # foo-fetch
+          starfetch
+          fastfetch
+          nitch # cute lil neofetch
+          microfetch # this is the best one fr
+          ipfetch
 
-        # fun
-        cmatrix
-        kittysay
-        cowsay
-        uwuify
-        nitch # cute lil neofetch
-        lolcat
+          # fun
+          pokemonsay
+          cmatrix
+          kittysay
+          cowsay
+          uwuify
+          thefuck
+          bonsai
+          asciiquarium
+          genact
 
-        # useful
-        evtest
-        libinput
-        gmp
-        zathura
-        usbutils
-        webcamoid
-        wev
+          # useful
+          evtest
+          libinput
+          gmp
+          zathura
+          usbutils
+          webcamoid
+          wev
+          pkg-config
 
-        # languages
-        python3
-        gcc
-        gpp
-        ghc
-        gnumake
-        lua
-        rustc
-        cargo
-        nodejs_23
-        crystal
-        shards
+          # languages
+          python3
+          gcc
+          gpp
+          gnumake
+          lua
+          rustc
+          cargo
+          nodejs_23
+          crystal
+          crystalline
+          shards
+          docker
 
-        # safe editor just in case
-        vim
+          # safe editor just in case
+          vim
 
-        # tiles map editor for 2D games
-        tiled
+          # tiles map editor for 2D games
+          tiled
 
-        # lsp
-        crystalline
-        nil
-        (pkgs.writeShellScriptBin "hello" ''
-          echo "Hello ${username}!"
-        '')
-      ];
+          # lsp
+          nil
+          (pkgs.writeShellScriptBin "hello" ''
+            echo "Hello ${username}!"
+          '')
+        ];
+      };
+      # Let Home Manager install and manage itself.
+      programs.home-manager.enable = true;
     };
-    # Let Home Manager install and manage itself.
-    programs.home-manager.enable = true;
-  };
 
   # Filesystems support
-  boot.supportedFilesystems = [ "ntfs" "exfat" "ext4" "fat32" "btrfs" ];
+  boot.supportedFilesystems = [
+    "ntfs"
+    "exfat"
+    "ext4"
+    "fat32"
+    "btrfs"
+  ];
 
   services = {
     devmon.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
+  };
+
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+    };
   };
 
   # Bootloader.
@@ -287,7 +308,6 @@ in
     # betterdiscord
   ];
 
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -313,7 +333,10 @@ in
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       ];
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       use-xdg-base-directories = false;
       warn-dirty = false;
       keep-outputs = true;
