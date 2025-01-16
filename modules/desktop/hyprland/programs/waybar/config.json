@@ -90,7 +90,7 @@
     "format-disconnected": " Disconnected",
     "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
     "on-click": "nm-connection-editor",
-    "interval": 5,
+    "interval": 5
   },
   "tray": {
     "icon-size": 21,
@@ -153,6 +153,6 @@
     "format-critical": " {temperatureC}°C",
     "format": " {temperatureC}°C",
     "interval": 2,
-    "exec": "sensors | grep 'temp1' | awk '{print $2}' | sed 's/+//g' | sed 's/°C//g'",
+    "exec": "sensors | grep 'temp1' | awk '{print $2}' | sed 's/+//g' | sed 's/°C//g'"
   }
-},
+}

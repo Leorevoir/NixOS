@@ -320,10 +320,10 @@
 
               "$mainMod, Return, exec, $term"
               "$mainMod, G, exec, ghostty"
-              "$mainMod, T, exec, $term"
               "$mainMod, E, exec, $file"
               "$mainMod, C, exec, $editor"
               "$mainMod, F, exec, $browser"
+              "$mainMod, T, exec, chromium"
               "$CONTROL ALT, DELETE, exec, $term -e '${getExe pkgs.btop}'" # system monitor
 
               "$mainMod, A, exec, pkill -x rofi || $launcher" # launch desktop applications
