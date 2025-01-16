@@ -6,6 +6,7 @@ case $window_class in
   "firefox") echo "firefox " ;;
   "discord") echo "discord " ;;
   "spotify") echo "" ;;
+  "chromium-browser") echo "" ;;
   *) echo "$window_class" ;;
 esac
 

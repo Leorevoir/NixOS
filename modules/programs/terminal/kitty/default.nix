@@ -13,8 +13,7 @@
           scrollback_lines = 10000;
           enable_audio_bell = false;
           mouse_hide_wait = 60;
-          # window_padding_width = 4;
-          window_padding_width = 25;
+          window_padding_width = 4;
           cursor_trail = 1;
 
           ## Tabs
