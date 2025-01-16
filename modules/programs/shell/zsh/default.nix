@@ -168,6 +168,7 @@
           if [ -d "$HOME/.config/emacs/bin/" ] ;
             then PATH="$HOME/.config/emacs/bin/:$PATH"
           fi
+
         '';
         shellGlobalAliases = {
           UUID = "$(uuidgen | tr -d \\n)";
@@ -187,6 +188,9 @@
           # INFO: the temporary solution lmao
           nvim = "/home/yutsuna/work/nixvim/result/bin/nvim";
           open = "~/.config/zsh/scripts/open.sh";
+          cs = "~/work/Epitech/coding-style.sh . . && cat coding-style-reports.log && rm -f coding-style-reports.log";
+          gs = "git status";
+          # clear = "clear;pokemon-colorscripts --no-title -r 1-6";
         };
       };
     })
