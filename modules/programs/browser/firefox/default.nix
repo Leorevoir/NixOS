@@ -423,8 +423,6 @@ in
                 privateDefault = "Startpage";
                 order = [
                   "Startpage"
-                  "Searx"
-                  "Brave"
                   "NixOS Packages"
                   "NixOS Options"
                   "NixOS Wiki"
@@ -440,26 +438,6 @@ in
                     ];
                     icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                     definedAliases = [ "@sp" ];
-                  };
-                  "Brave" = {
-                    urls = [
-                      {
-                        template = "https://search.brave.com/search";
-                        params = [
-                          {
-                            name = "q";
-                            value = "{searchTerms}";
-                          }
-                        ];
-                      }
-                    ];
-                    definedAliases = [ "@br" ];
-                  };
-                  "Searx" = {
-                    urls = [{ template = "https://searx.aicampground.com/?q={searchTerms}"; }];
-                    iconUpdateURL = "https://nixos.wiki/favicon.png";
-                    updateInterval = 24 * 60 * 60 * 1000; # every day
-                    definedAliases = [ "@sx" ];
                   };
                   "NixOS Packages" = {
                     urls = [
