@@ -100,6 +100,7 @@ in
           python3
           gcc
           gpp
+          valgrind
           gnumake
           lua
           rustc
