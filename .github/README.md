@@ -26,8 +26,8 @@
    </div>
 </h1>
 
+![Screenshot](assets/wip_preview2.png)
 ![Screenshot](assets/wip_preview.png)
-![Screenshot](assets/cyberpunk_preview.png)
 
 # Install
 
