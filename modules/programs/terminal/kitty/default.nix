@@ -16,6 +16,8 @@
           window_padding_width = 4;
           cursor_trail = 1;
 
+          allow_hyperlinks = true;
+
           ## Tabs
           tab_title_template = "{index}";
           active_tab_font_style = "normal";
