@@ -29,13 +29,13 @@
       programs.bat = {
         enable = true;
         config = {
-          theme = "Catppuccin Mocha";
+          theme = "Catppuccin Frappe";
         };
         themes = {
-          "Catppuccin Mocha" = {
+          "Catppuccin Frappe" = {
             src = pkgs.fetchurl {
-              url = "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Macchiato.tmTheme";
-              sha256 = "zL18U4AXMO8+gBH3T/HDl8e7OYjIRqUdeeb0i4V7kVI=";
+              url = "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Frappe.tmTheme";
+              sha256 = "kJZZDy3xk8oPe0zM//B4bAA6sYufyAKuEPiKq04Lkvk=";
             };
           };
         };

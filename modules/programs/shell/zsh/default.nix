@@ -177,7 +177,7 @@
           cls = "clear";
           cp = "cp -iv";
           mv = "mv -iv";
-          rm = "rm -vI";
+          rm = "rm -vi";
           mkdir = "mkdir -pv";
           grep = "grep --color=always";
           # Nixos
@@ -186,11 +186,12 @@
           update-input = "nix flake lock --update-input $@";
           rebuild = "~/NixOS/install.sh --rebuild";
           # INFO: the temporary solution lmao
-          nvim = "/home/yutsuna/work/nixvim/result/bin/nvim";
+          nvim = "~/work/nixvim/result/bin/nvim";
           open = "~/.config/zsh/scripts/open.sh";
           cs = "~/work/Epitech/coding-style.sh . . && cat coding-style-reports.log && rm -f coding-style-reports.log";
           gs = "git status";
-          # clear = "clear;pokemon-colorscripts --no-title -r 1-6";
+          copy = "wl-copy";
+          paste = "wl-paste";
         };
       };
     })

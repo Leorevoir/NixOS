@@ -15,7 +15,6 @@
           l = "${eza}/bin/eza -lh  --icons=always";
           ls = "${eza}/bin/eza   --icons=always";
           ll = "${eza}/bin/eza -lha --icons=always --sort=name --group-directories-first";
-          ld = "${eza}/bin/eza -lhD --icons=always";
           tree = "${eza}/bin/eza --icons=always --tree";
         };
       };

@@ -56,6 +56,8 @@ in
           # Terminal
           bat
           eza
+          man-pages
+          busybox
           fzf
           fd
           git
@@ -111,6 +113,7 @@ in
           asm-lsp
           shards
           docker
+          binutils
 
           # safe editor just in case
           vim
