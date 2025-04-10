@@ -37,9 +37,6 @@ fi
 if [ -d "$1" ]; then
     thunar "$1" &> /dev/null &
 
-elif [[ "$1" =~ \.pdf$ ]]; then
-    zathura "$1" &> /dev/null &
-
 elif [[ "$1" =~ \.png$ ]]; then
     qimgv "$1" &> /dev/null &
 

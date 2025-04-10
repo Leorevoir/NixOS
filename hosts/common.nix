@@ -101,17 +101,12 @@ in
           # languages
           python3
           gcc
-          gpp
           valgrind
           gnumake
           lua
           rustc
           cargo
-          nodejs_23
-          crystal
-          crystalline
           asm-lsp
-          shards
           docker
           binutils
 
@@ -120,12 +115,6 @@ in
 
           # tiles map editor for 2D games
           tiled
-
-          # lsp
-          nil
-          (pkgs.writeShellScriptBin "hello" ''
-            echo "Hello ${username}!"
-          '')
         ];
       };
       # Let Home Manager install and manage itself.

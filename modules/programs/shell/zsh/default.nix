@@ -32,6 +32,8 @@
 
           # Key Bindings
           bindkey -s ^l "lf\n"
+          bindkey "\eOA" up-line-or-history
+          bindkey "\eOB" down-line-or-history
 
           # options
           unsetopt menu_complete
